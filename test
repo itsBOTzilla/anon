@@ -1,11 +1,33 @@
 #!/bin/bash
 
+#######################################
+# Property of Tyler K.
+# Twitch / Twitter 
+# @itsBOTzilla
+# itsBOTzilla.com
+# Use at own risk
+# Not my problem if you blow shit up
+#######################################
+
 # Set some variables.
 currentscript=$0
 currentdir=$PWD
 
 # Export variable for use in subshell.
 export currentdir
+
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+function ctrl_c() {
+        echo -e "\e[1;31mCannot CTRL + C. Use Option 4 to kill the script.\e[0m"
+}
+
+for i in `seq 1 5`; do
+    sleep 1
+    echo -n "."
+done
 
 # Function that is called when the script exits.
 function finish {
