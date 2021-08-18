@@ -30,7 +30,7 @@ for i in `seq 1 5`; do
 done
 
 # trap ctrl-z and call ctrl_z()
-trap "echo -e \e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m" 20
+trap 'echo -e "\e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m"' 20
 
 
 # Function that is called when the script exits.
