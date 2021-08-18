@@ -30,8 +30,7 @@ for i in `seq 1 5`; do
 done
 
 # trap ctrl-z and call ctrl_z()
-trap ' '2 20
-
+trap "echo Cntl-Z key disabled" 20
 
 
 # Function that is called when the script exits.
