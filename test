@@ -1,14 +1,5 @@
 #!/bin/bash
 
-#######################################
-# Property of Tyler K.
-# Twitch / Twitter 
-# @itsBOTzilla
-# itsBOTzilla.com
-# Use at own risk
-# Not my problem if you blow shit up
-#######################################
-
 # Set some variables.
 currentscript=$0
 currentdir=$PWD
