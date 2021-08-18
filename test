@@ -30,7 +30,7 @@ for i in `seq 1 5`; do
 done
 
 # trap ctrl-z and call ctrl_z()
-trap "echo -e "\e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m"" 20
+trap "echo -e \e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m" 20
 
 
 # Function that is called when the script exits.
@@ -44,7 +44,6 @@ function finish {
 # Beginning of script.
 export PS3=$'\e[1;31mChoose your option. Be careful...: \e[0m'
 echo ""
-echo "Version 2.0"
 echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT \e[0m"
 echo -e "\033[1;36mUSE AT OWN RISK \e[0m"
 echo ""
