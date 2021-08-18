@@ -21,13 +21,22 @@ export currentdir
 trap ctrl_c INT
 
 function ctrl_c() {
+	echo ""
         echo -e "\e[1;31mCannot CTRL + C. Use Option 4 to kill the script.\e[0m"
 }
+for i in `seq 1 5`; do sleep 1 echo -n "." done
 
-for i in `seq 1 5`; do
-    sleep 1
-    echo -n "."
-done
+
+# trap ctrl-z and call ctrl_z()
+trap ctrl_z INT
+
+function ctrl_z() {
+	echo ""
+        echo -e "\e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m"
+}
+for i in `seq 1 5`; do sleep 1 echo -n "." done
+
+
 
 # Function that is called when the script exits.
 function finish {
