@@ -44,7 +44,7 @@ function finish {
 # Beginning of script.
 export PS3=$'\e[1;31mChoose your option. Be careful...: \e[0m'
 echo ""
-echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT 1z \e[0m"
+echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT 1234 \e[0m"
 echo -e "\033[1;36mUSE AT OWN RISK \e[0m"
 echo ""
 anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Kill The FOX Permissions" "Quit")
