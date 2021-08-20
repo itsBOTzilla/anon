@@ -51,7 +51,7 @@ anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Kill The FOX Permissions
 select menu in "${anonymous[@]}"; do
     case $menu in
         "Find AnonymousFox Mail")
-            for i in $(find /home/*/mail -maxdepth 2 -name 'anonymous*' | find /home/*/mail -maxdepth 2 -name 'smtpfox*' | find /home/*/mail -maxdepth 2 -name 'smtpf0x*' | find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' | find /home/*/mail -maxdepth 2 -name 'foxsmtp*' ); do $i; echo "$i" > mnglog.log; done
+            for i in $(find /home/*/mail -maxdepth 2 -name "anonymous*" | find /home/*/mail -maxdepth 2 -name "smtpfox*" | find /home/*/mail -maxdepth 2 -name "smtpf0x*" | find /home/*/mail -maxdepth 2 -name "f0xsmtp*" | find /home/*/mail -maxdepth 2 -name "foxsmtp*" ); do $i; echo "$i" > mnglog.log; done
 
 
             # find /home/*/mail -maxdepth 2 -name 'anonymous*'
