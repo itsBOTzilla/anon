@@ -51,11 +51,13 @@ anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Kill The FOX Permissions
 select menu in "${anonymous[@]}"; do
     case $menu in
         "Find AnonymousFox Mail")
-            find /home/*/mail -maxdepth 2 -name 'anonymous*'
-            find /home/*/mail -maxdepth 2 -name 'smtpfox*' 
-            find /home/*/mail -maxdepth 2 -name 'smtpf0x*'
-            find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' 
-            find /home/*/mail -maxdepth 2 -name 'foxsmtp*' 
+	 for i in $(find /home/*/mail -maxdepth 2 -name "anonymous*" && find /home/*/mail -maxdepth 2 -name 'smtpfox*'); do chmod 000 $i; echo "$i"; done
+
+#             find /home/*/mail -maxdepth 2 -name 'anonymous*'
+#             find /home/*/mail -maxdepth 2 -name 'smtpfox*' 
+#             find /home/*/mail -maxdepth 2 -name 'smtpf0x*'
+#             find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' 
+#             find /home/*/mail -maxdepth 2 -name 'foxsmtp*' 
 
 # End Finding AnonymousFox Mail Folders.
     ;;
