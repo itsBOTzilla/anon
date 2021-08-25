@@ -52,11 +52,11 @@ anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Find Fox Folders" "Kill 
 select menu in "${anonymous[@]}"; do
     case $menu in
         "Find AnonymousFox Mail")
-            find /home/*/mail -maxdepth 2 -name 'anonymous*'
-            find /home/*/mail -maxdepth 2 -name 'smtpfox*'
-            find /home/*/mail -maxdepth 2 -name 'smtpf0x*' 
-            find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' 
-            find /home/*/mail -maxdepth 2 -name 'foxsmtp*'
+            find /home/*/mail -maxdepth 2 -name 'anonymous*' >> mng.log
+            find /home/*/mail -maxdepth 2 -name 'smtpfox*' >> mng.log
+            find /home/*/mail -maxdepth 2 -name 'smtpf0x*' >> mng.log
+            find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' >> mng.log
+            find /home/*/mail -maxdepth 2 -name 'foxsmtp*' >> mng.log
 
 
 
