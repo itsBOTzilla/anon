@@ -1,10 +1,6 @@
 #!/bin/bash
 
 #######################################
-# Property of Tyler K.
-# Twitch / Twitter 
-# @itsBOTzilla
-# itsBOTzilla.com
 # Use at own risk
 # Not my problem if you blow shit up
 #######################################
@@ -12,6 +8,8 @@
 # Set some variables.
 currentscript=$0
 currentdir=$PWD
+
+
 
 # Export variable for use in subshell.
 export currentdir
@@ -41,24 +39,29 @@ function finish {
     shred -u ${currentscript};
 }
 
+
+
+
 # Beginning of script.
 export PS3=$'\e[1;31mChoose your option. Be careful...: \e[0m'
 echo ""
-echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT 1221 \e[0m"
+echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT \e[0m"
 echo -e "\033[1;36mUSE AT OWN RISK \e[0m"
 echo ""
-anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Kill The FOX Permissions" "Quit")
+anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Find Fox Folders" "Kill The FOX Permissions" "Quit")
 select menu in "${anonymous[@]}"; do
     case $menu in
         "Find AnonymousFox Mail")
-            for i in $(find /home/*/mail -maxdepth 2 -name "anonymous*" && find /home/*/mail -maxdepth 2 -name "smtpfox*" && find /home/*/mail -maxdepth 2 -name "smtpf0x*" && find /home/*/mail -maxdepth 2 -name "f0xsmtp*" && find /home/*/mail -maxdepth 2 -name "foxsmtp*" ); do $i; echo "$i" > mnglog.log; done
+
+            find /home/*/mail -maxdepth 2 -name 'anonymous*'
+            find /home/*/mail -maxdepth 2 -name 'smtpfox*'
+            find /home/*/mail -maxdepth 2 -name 'smtpf0x*' 
+            find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' 
+            find /home/*/mail -maxdepth 2 -name 'foxsmtp*'
 
 
-            # find /home/*/mail -maxdepth 2 -name 'anonymous*'
-            # find /home/*/mail -maxdepth 2 -name 'smtpfox*' 
-            # find /home/*/mail -maxdepth 2 -name 'smtpf0x*'
-            # find /home/*/mail -maxdepth 2 -name 'f0xsmtp*' 
-            # find /home/*/mail -maxdepth 2 -name 'foxsmtp*' 
+
+      
 
 # End Finding AnonymousFox Mail Folders.
     ;;
@@ -70,6 +73,10 @@ select menu in "${anonymous[@]}"; do
         find / -type f -name 'FoxAutoConfig'
 
 # End Finding ANonymousFox Config Files.
+    ;;
+
+    "Find Fox Folders")
+    for i in $(find /home/*/public_html -maxdepth 2 -type d -name "Fox*"); do chmod 000 $i; echo "$i"; done
     ;;
 
 
@@ -101,14 +108,3 @@ select menu in "${anonymous[@]}"; do
         *) echo -e "\e[1;31mInvalid Option... (Check this out: http://gph.is/29b04qJ) $REPLY \e[0m";;
     esac
 done
-
-
-
-
-
-
-
-
-
-
-
