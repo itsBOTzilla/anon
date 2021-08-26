@@ -23,9 +23,9 @@ function ctrl_c() {
         echo -e "\e[1;31mCannot CTRL + C. Use Option 4 to kill the script.\e[0m"
 }
 for i in `seq 1 5`; do
-    sleep 1
-    echo -n "."
-done
+	sleep 1
+	echo -n "."
+	done
 
 # trap ctrl-z and call ctrl_z()
 trap 'echo -e "\e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m"' 20
@@ -44,25 +44,25 @@ function finish {
 
 # Beginning of script.
 export PS3=$'\e[1;31mChoose your option. Be careful...: \e[0m'
-echo ""
-echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT \e[0m"
-echo -e "\033[1;36mUSE AT OWN RISK \e[0m"
-echo ""
-anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Find Fox Folders" "Kill The FOX Permissions" "Quit")
+	echo ""
+	echo -e "\033[1;36mPLEASE DO NOT ALTER OR MAKE MODIFICATIONS TO THIS SCRIPT \e[0m"
+	echo -e "\033[1;36mUSE AT OWN RISK \e[0m"
+	echo ""
+	anonymous=("Find AnonymousFox Mail" "Find Fox Configs" "Find Fox Folders" "Kill The FOX Permissions" "Quit")
 select menu in "${anonymous[@]}"; do
-    case $menu in
+case $menu in
         "Find AnonymousFox Mail")
         #echo to file
-	    echo `date` "Find Fox Mail" >> log.txt
-	    echo "Find Fox Mail" >> log.txt
+	echo `date` "Find Fox Mail" >> managedfox.log
+	echo "Find Fox Mail" >> managedfox.log
         #echo to console
         echo `date` "Find Fox Mail"
         echo "Find Fox Mail"
-        for i in $(find / -type d -name "anonymous*"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "smtpfox*"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "smtpf0x*"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "f0xsmtp*"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "foxsmtp*"); do echo "$i" | tee -a log.txt; done
+        for i in $(find / -type d -name "anonymous*"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "smtpfox*"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "smtpf0x*"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "f0xsmtp*"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "foxsmtp*"); do echo "$i" | tee -a managedfox.log; done
 
 
 
@@ -71,17 +71,17 @@ select menu in "${anonymous[@]}"; do
 
         "Find Fox Configs")
         #echo to file
-        echo ""
-        echo ""
-	    echo `date` "Find Fox Configs" >> log.txt
-	    echo "Find Fox Configs" >> log.txt
+        echo "" >> managedfox.log
+        echo "" >> managedfox.log
+	echo `date` "Find Fox Configs" >> managedfox.log
+	echo "Find Fox Configs" >> managedfox.log
         #echo to console
         echo `date` "Find Fox Configs"
         echo "Find Fox Configs"
-        for i in $(find / -type d -name "F0xAutoConfig"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "FoxAutoConfig"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "F0xAutoConfig"); do echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "FoxAutoConfig"); do echo "$i" | tee -a log.txt; done
+        for i in $(find / -type d -name "F0xAutoConfig"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "FoxAutoConfig"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type f -name "F0xAutoConfig"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type f -name "FoxAutoConfig"); do echo "$i" | tee -a managedfox.log; done
 
 
 # End Finding ANonymousFox Config Files.
@@ -89,38 +89,38 @@ select menu in "${anonymous[@]}"; do
 
         "Find Fox Folders")
         #echo to file
-        echo ""
-        echo ""
-        echo `date` "Find Fox folders inside public_html" >> log.txt
+        echo "" >> managedfox.log
+        echo "" >> managedfox.log
+        echo `date` "Find Fox folders inside public_html" >> managedfox.log
         #echo to console
         echo "Find Fox Folders"
-        for i in $(find /home/*/public_html -maxdepth 2 -type d -name "Fox*"); do echo "$i" | tee -a log.txt; done
-        for i in $(find /home/*/public_html -maxdepth 2 -type d -name "fox*"); do echo "$i" | tee -a log.txt; done
+        for i in $(find /home/*/public_html -maxdepth 2 -type d -name "Fox*"); do echo "$i" | tee -a managedfox.log; done
+        for i in $(find /home/*/public_html -maxdepth 2 -type d -name "fox*"); do echo "$i" | tee -a managedfox.log; done
 
 # End Finding Fox Folders within public_html
         ;;
 
 
         "Kill The FOX Permissions")
-	    #echo to file
-        echo ""
-        echo ""
-	    echo `date` "find fox mail" >> log.txt
-	    echo "Mail Folders and Configuration" >> log.txt
-	    echo "Permissions Set to 0000 For The Following Folders/Files:" >> log.txt
-	    #echo to console
-	    echo `date` "find fox mail"
+	#echo to file
+        echo "" >> managedfox.log
+        echo "" >> managedfox.log
+	echo `date` "find fox mail" >> managedfox.log
+	echo "Mail Folders and Configuration" >> managedfox.log
+	echo "Permissions Set to 0000 For The Following Folders/Files:" >> managedfox.log
+	#echo to console
+	echo `date` "find fox mail"
         echo "Mail Folders and Configuration"
         echo "Permissions Set to 0000 For The Following Folders/Files:"
-        for i in $(find /home/*/mail -maxdepth 2 -type d -name "anonymous*"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find /home/*/mail -maxdepth 2 -type d -name "smtpfox*"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find /home/*/mail -maxdepth 2 -type d -name "smtpf0x*"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find /home/*/mail -maxdepth 2 -type d -name "f0xsmtp*"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find /home/*/mail -maxdepth 2 -type d -name "foxsmtp*"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "F0xAutoConfig"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find / -type d -name "FoxAutoConfig"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find / -type f -name "F0xAutoConfig"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
-        for i in $(find / -type f -name "FoxAutoConfig"); do chmod 000 $i; echo "$i" | tee -a log.txt; done
+        for i in $(find /home/*/mail -maxdepth 2 -type d -name "anonymous*"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find /home/*/mail -maxdepth 2 -type d -name "smtpfox*"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find /home/*/mail -maxdepth 2 -type d -name "smtpf0x*"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find /home/*/mail -maxdepth 2 -type d -name "f0xsmtp*"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find /home/*/mail -maxdepth 2 -type d -name "foxsmtp*"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "F0xAutoConfig"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type d -name "FoxAutoConfig"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type f -name "F0xAutoConfig"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
+        for i in $(find / -type f -name "FoxAutoConfig"); do chmod 000 $i; echo "$i" | tee -a managedfox.log; done
         for i in $(find /home/*/public_html -maxdepth 2 -type d -name "fox*"); do chmod 000 $i; echo "$i"; done
         for i in $(find /home/*/public_html -maxdepth 2 -type d -name "Fox*"); do chmod 000 $i; echo "$i"; done
         
@@ -131,10 +131,10 @@ select menu in "${anonymous[@]}"; do
 
 # End of script, this will trigger the file to be deleted from the current system. 
 	"Quit")
-	    echo -e "\e[1;32mThanks for being the best part of our team! \e[0m"
+	echo -e "\e[1;32mThanks for being the best part of our team! \e[0m"
         echo -e "\e[1;36mDon't forget to remove this script......... \e[0m"
         trap finish EXIT
-	    exit
+	exit
 	    ;;
         *) echo -e "\e[1;31mInvalid Option... (Check this out: http://gph.is/29b04qJ) $REPLY \e[0m";;
     esac
