@@ -35,7 +35,8 @@ trap 'echo -e "\e[1;31mCannot CTRL + Z. Use Option 4 to kill the script.\e[0m"' 
 function finish {
     #securely shred running script
     echo -e "\e[1;36mJust Kidding! I gotchu taken care of ;) \e[0m"
-    echo -e "\e[1;31mRemoving the following file from the system: ${currentscript} \e[0m"
+    echo -e "\e[1;31mRemoving the following file from the system: ${currentdir}/${currentscript} \e[0m"
+    echo -e "\e[1;32mDon't forget to check your log file: ${currentdir}/managedfox.log \e[0m"
     shred -u ${currentscript};
 }
 
